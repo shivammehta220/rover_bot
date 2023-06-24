@@ -1,0 +1,287 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+    <material name="grey">
+        <color rgba="0.5 0.5 0.5 1"/>
+    </material>
+
+    <material name="red">
+        <color rgba="1 0 0 1"/>
+    </material>
+
+    <!-- BASE LINK -->
+
+    <link name ="base_link">
+
+    </link>
+
+    <!-- CHASSIS LINK -->
+
+    <joint name="chassis_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="chassis"/>
+        <origin xyz="0.046565 0 0.098366"/>
+    </joint>
+
+    <link name="chassis">
+        <visual>
+            <origin xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="file:///home/shivam/rover_ws/src/rover_bot/description/meshes/chassis.stl"/>
+            </geometry>
+            <material name="grey"/>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="file:///home/shivam/rover_ws/src/rover_bot/description/meshes/chassis.stl"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="1.225156"/>
+            <inertia ixx="0.01117" ixy="0.000002132725" ixz="-0.0002573" iyx="0.000002132725" izz="0.01053" iyz="0.000005544541" izx="-0.0002573" izy="0.000005544541" iyy="0.01191"/>
+            <origin xyz="-0.091666 0.0 -0.021337" rpy="0 0 0"/>       
+        </inertial>
+
+    </link>
+
+    <!-- RIGHT ARM LINK -->
+
+    <joint name="right_arm_joint" type="fixed">
+        <parent link="chassis"/>
+        <child link="right_arm"/>
+        <origin xyz="0.034521 -0.100 -0.029025" />
+    </joint>
+
+    <link name="right_arm">
+        <visual>
+            <geometry>
+                <mesh filename="file:///home/shivam/rover_ws/src/rover_bot/description/meshes/right_arm.stl"/>
+            </geometry>
+            <material name="grey"/>
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="file:///home/shivam/rover_ws/src/rover_bot/description/meshes/right_arm.stl"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.17912"/>
+            <inertia ixx="0.0001838" ixy="9.59e-9" ixz="2.662e-9" iyx="9.59e-9" iyy="0.0007798" iyz="3.58241e-7" izx="2.662e-9" izy="3.58241e-7" izz="0.0006212"/>
+            <origin xyz="0 -0.016946 -0.037256" rpy="0 0 0"/>       
+        </inertial>
+        
+    </link>
+
+    <!-- LEFT ARM LINK -->
+
+    <joint name="left_arm_joint" type="fixed">
+        <parent link="chassis"/>
+        <child link="left_arm"/>
+        <origin xyz="0.034521 0.100 -0.029025" rpy="0 0 ${pi}"/>
+    </joint>
+
+    <link name="left_arm">
+        <visual>
+            <geometry>
+                <mesh filename="file:///home/shivam/rover_ws/src/rover_bot/description/meshes/left_arm.stl"/>
+            </geometry>
+            <material name="grey"/>
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="file:///home/shivam/rover_ws/src/rover_bot/description/meshes/left_arm.stl"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.17912"/>
+            <inertia ixx="0.0001838" ixy="9.59e-9" ixz="2.662e-9" iyx="9.59e-9" iyy="0.0007798" iyz="3.58241e-7" izx="2.662e-9" izy="3.58241e-7" izz="0.0006212"/>
+            <origin xyz="0 -0.016946 -0.037256" rpy="0 0 0"/>       
+        </inertial>
+        
+    </link>
+
+    <!-- RIGHT MIDDLE WHEEL LINK -->
+
+    <joint name="right_middle_wheel_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="right_middle_wheel"/>
+        <origin xyz="0 -0.133 0" rpy="${pi/2} 0 0"/>
+        <axis xyz="0 0 -1"/>
+    </joint>
+
+    <link name="right_middle_wheel">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 ${pi/2} 0"/>
+            <geometry>
+                <mesh filename="file:///home/shivam/rover_ws/src/rover_bot/description/meshes/wheel.stl"/>
+            </geometry>
+            <material name="grey"/>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 ${pi/2} 0"/>
+            <geometry>
+                <mesh filename="file:///home/shivam/rover_ws/src/rover_bot/description/meshes/wheel.stl"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.045987"/>
+            <inertia ixx="0.000014666188" ixy="8e-12" ixz="2.224e-9" iyx="8e-12" izz="0.00002264932" iyz="1.5e-11" izx="2.224e-9" izy="1.5e-11" iyy="0.000014668414"/>
+            <origin xyz="0 0 0.016326" rpy="0 0 0"/>       
+        </inertial>
+
+    </link>
+
+    <!-- RIGHT REAR WHEEL LINK -->
+
+    <joint name="right_rear_wheel_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="right_rear_wheel"/>
+        <origin xyz="-0.165 -0.133 0" rpy="${pi/2} 0 0"/>
+        <axis xyz="0 0 -1"/>
+    </joint>
+
+    <link name="right_rear_wheel">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 ${pi/2} 0"/>
+            <geometry>
+                <mesh filename="file:///home/shivam/rover_ws/src/rover_bot/description/meshes/wheel.stl"/>
+            </geometry>
+            <material name="grey"/>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 ${pi/2} 0"/>
+            <geometry>
+                <mesh filename="file:///home/shivam/rover_ws/src/rover_bot/description/meshes/wheel.stl"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.045987"/>
+            <inertia ixx="0.000014666188" ixy="8e-12" ixz="2.224e-9" iyx="8e-12" izz="0.00002264932" iyz="1.5e-11" izx="2.224e-9" izy="1.5e-11" iyy="0.000014668414"/>
+            <origin xyz="0 0 0.016326" rpy="0 0 0"/>       
+        </inertial>
+    </link>
+
+    <!-- RIGHT FRONT WHEEL LINK -->
+
+    <joint name="right_front_wheel_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="right_front_wheel"/>
+        <origin xyz="0.165 -0.133 0" rpy="${pi/2} 0 0"/>
+        <axis xyz="0 0 -1"/>
+    </joint>
+
+    <link name="right_front_wheel">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 ${pi/2} 0"/>
+            <geometry>
+                <mesh filename="file:///home/shivam/rover_ws/src/rover_bot/description/meshes/wheel.stl"/>
+            </geometry>
+            <material name="grey"/>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 ${pi/2} 0"/>
+            <geometry>
+                <mesh filename="file:///home/shivam/rover_ws/src/rover_bot/description/meshes/wheel.stl"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.045987"/>
+            <inertia ixx="0.000014666188" ixy="8e-12" ixz="2.224e-9" iyx="8e-12" izz="0.00002264932" iyz="1.5e-11" izx="2.224e-9" izy="1.5e-11" iyy="0.000014668414"/>
+            <origin xyz="0 0 0.016326" rpy="0 0 0"/>       
+        </inertial>
+    </link>
+
+
+    <!-- LEFT MIDDLE WHEEL LINK -->
+
+    <joint name="left_middle_wheel_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="left_middle_wheel"/>
+        <origin xyz="0 0.133 0" rpy="${pi/2} 0 0"/>
+        <axis xyz="0 0 -1"/>
+    </joint>
+
+    <link name="left_middle_wheel">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -${pi/2} 0"/>
+            <geometry>
+                <mesh filename="file:///home/shivam/rover_ws/src/rover_bot/description/meshes/wheel.stl"/>
+            </geometry>
+            <material name="grey"/>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 -${pi/2} 0"/>
+            <geometry>
+                <mesh filename="file:///home/shivam/rover_ws/src/rover_bot/description/meshes/wheel.stl"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.045987"/>
+            <inertia ixx="0.000014666188" ixy="8e-12" ixz="2.224e-9" iyx="8e-12" izz="0.00002264932" iyz="1.5e-11" izx="2.224e-9" izy="1.5e-11" iyy="0.000014668414"/>
+            <origin xyz="0 0 -0.016326" rpy="0 0 0"/>       
+        </inertial>
+    </link>
+
+    <!-- LEFT REAR WHEEL LINK -->
+
+    <joint name="left_rear_wheel_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="left_rear_wheel"/>
+        <origin xyz="-0.165 0.133 0" rpy="${pi/2} 0 0"/>
+        <axis xyz="0 0 -1"/>
+    </joint>
+
+    <link name="left_rear_wheel">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -${pi/2} 0"/>
+            <geometry>
+                <mesh filename="file:///home/shivam/rover_ws/src/rover_bot/description/meshes/wheel.stl"/>
+            </geometry>
+            <material name="grey"/>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 -${pi/2} 0"/>
+            <geometry>
+                <mesh filename="file:///home/shivam/rover_ws/src/rover_bot/description/meshes/wheel.stl"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.045987"/>
+            <inertia ixx="0.000014666188" ixy="8e-12" ixz="2.224e-9" iyx="8e-12" izz="0.00002264932" iyz="1.5e-11" izx="2.224e-9" izy="1.5e-11" iyy="0.000014668414"/>
+            <origin xyz="0 0 -0.016326" rpy="0 0 0"/>       
+        </inertial>
+    </link>
+
+    <!-- LEFT FRONT WHEEL LINK -->
+
+    <joint name="left_front_wheel_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="left_front_wheel"/>
+        <origin xyz="0.165 0.133 0" rpy="${pi/2} 0 0"/>
+        <axis xyz="0 0 -1"/>
+    </joint>
+
+    <link name="left_front_wheel">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -${pi/2} 0"/>
+            <geometry>
+                <mesh filename="file:///home/shivam/rover_ws/src/rover_bot/description/meshes/wheel.stl"/>
+            </geometry>
+            <material name="grey"/>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 -${pi/2} 0"/>
+            <geometry>
+                <mesh filename="file:///home/shivam/rover_ws/src/rover_bot/description/meshes/wheel.stl"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.045987"/>
+            <inertia ixx="0.000014666188" ixy="8e-12" ixz="2.224e-9" iyx="8e-12" izz="0.00002264932" iyz="1.5e-11" izx="2.224e-9" izy="1.5e-11" iyy="0.000014668414"/>
+            <origin xyz="0 0 -0.016326" rpy="0 0 0"/>       
+        </inertial>
+    </link>
+
+
+</robot>

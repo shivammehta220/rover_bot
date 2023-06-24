@@ -1,0 +1,305 @@
+chassis
+Physical
+	Mass	1225.156 g = 1.225156
+	Volume	1179000.000 mm^3
+	Density	0.001 g / mm^3
+	Area	495100.000 mm^2
+	World X,Y,Z	46.565
+	Center of Mass	-45.101
+	Bounding Box
+		Length	299.258 mm
+		Width	264.000 mm
+		Height	304.902 mm
+	Moment of Inertia at Center of Mass   (g mm^2)
+		Ixx	1.117E+07
+		Ixy	2132.725
+		Ixz	-2.573E+05
+		Iyx	2132.725
+		Iyy	1.053E+07
+		Iyz	5544.541
+		Izx	-2.573E+05
+		Izy	5544.541
+		Izz	1.191E+07
+	Moment of Inertia at Origin   (g mm^2)
+		Ixx	2.872E+07
+		Ixy	1980.213
+		Ixz	6.357E+06
+		Iyx	1980.213
+		Iyy	3.057E+07
+		Iyz	5949.331
+		Izx	6.357E+06
+		Izy	5949.331
+		Izz	1.440E+07
+
+right arm
+Physical
+	Mass	179.120 g
+	Volume	157700.000 mm^3
+	Density	0.001 g / mm^3
+	Area	57551.974 mm^2
+	World X,Y,Z	81.086
+	Center of Mass	81.086
+	Bounding Box
+		Length	222.788 mm
+		Width	33.000 mm
+		Height	111.472 mm
+	Moment of Inertia at Center of Mass   (g mm^2)
+		Ixx	1.838E+05
+		Ixy	9.59
+		Ixz	-2.662
+		Iyx	9.59
+		Iyy	7.798E+05
+		Iyz	-358.241
+		Izx	-2.662
+		Izy	-358.241
+		Izz	6.212E+05
+	Moment of Inertia at Origin   (g mm^2)
+		Ixx	2.818E+06
+		Ixy	1.699E+06
+		Ixz	-4.660E+05
+		Iyx	1.699E+06
+		Iyy	2.142E+06
+		Iyz	6.718E+05
+		Izx	-4.660E+05
+		Izy	6.718E+05
+		Izz	4.249E+06
+
+left arm
+Physical
+	Mass	179.120 g
+	Volume	157700.000 mm^3
+	Density	0.001 g / mm^3
+	Area	57551.974 mm^2
+	World X,Y,Z	81.086
+	Center of Mass	81.085
+	Bounding Box
+		Length	222.788 mm
+		Width	33.000 mm
+		Height	111.472 mm
+	Moment of Inertia at Center of Mass   (g mm^2)
+		Ixx	1.838E+05
+		Ixy	9.59
+		Ixz	2.662
+		Iyx	9.59
+		Iyy	7.798E+05
+		Iyz	358.241
+		Izx	2.662
+		Izy	358.241
+		Izz	6.212E+05
+	Moment of Inertia at Origin   (g mm^2)
+		Ixx	2.818E+06
+		Ixy	-1.699E+06
+		Ixz	-4.660E+05
+		Iyx	-1.699E+06
+		Iyy	2.142E+06
+		Iyz	-6.718E+05
+		Izx	-4.660E+05
+		Izy	-6.718E+05
+		Izz	4.249E+06
+
+wheel
+
+General
+	Part Number	Back Right Wheel
+Physical
+	Mass	45.987 g
+	Volume	33687.607 mm^3
+	Density	0.001 g / mm^3
+	Area	45073.041 mm^2
+	World X,Y,Z	-165.000
+	Center of Mass	-165.000
+	Bounding Box
+		Length	68.000 mm
+		Width	30.850 mm
+		Height	68.002 mm
+	Moment of Inertia at Center of Mass   (g mm^2)
+		Ixx	14666.188
+		Ixy	-0.008
+		Ixz	-2.224
+		Iyx	-0.008
+		Iyy	22649.32
+		Iyz	-0.015
+		Izx	-2.224
+		Izy	-0.015
+		Izz	14668.414
+	Moment of Inertia at Origin   (g mm^2)
+		Ixx	1.040E+06
+		Ixy	-1.133E+06
+		Ixz	-3.135
+		Iyx	-1.133E+06
+		Iyy	1.275E+06
+		Iyz	-0.839
+		Izx	-3.135
+		Izy	-0.839
+		Izz	2.292E+06
+
+General
+	Part Number	Middle Right Wheel
+Physical
+	Mass	45.987 g
+	Volume	33687.607 mm^3
+	Density	0.001 g / mm^3
+	Area	45073.041 mm^2
+	World X,Y,Z	-0.000
+	Center of Mass	-0.000
+	Bounding Box
+		Length	68.000 mm
+		Width	30.850 mm
+		Height	68.002 mm
+	Moment of Inertia at Center of Mass   (g mm^2)
+		Ixx	14666.188
+		Ixy	-0.008
+		Ixz	-2.224
+		Iyx	-0.008
+		Iyy	22649.32
+		Iyz	-0.015
+		Izx	-2.224
+		Izy	-0.015
+		Izz	14668.414
+	Moment of Inertia at Origin   (g mm^2)
+		Ixx	1.040E+06
+		Ixy	-0.124
+		Ixz	-2.224
+		Iyx	-0.124
+		Iyy	22649.32
+		Iyz	-0.839
+		Izx	-2.224
+		Izy	-0.839
+		Izz	1.040E+06
+General
+	Part Number	Front Right Wheel
+Physical
+	Mass	45.987 g
+	Volume	33687.607 mm^3
+	Density	0.001 g / mm^3
+	Area	45073.041 mm^2
+	World X,Y,Z	165.000
+	Center of Mass	165.000
+	Bounding Box
+		Length	68.000 mm
+		Width	30.850 mm
+		Height	68.002 mm
+	Moment of Inertia at Center of Mass   (g mm^2)
+		Ixx	14666.188
+		Ixy	-0.008
+		Ixz	-2.224
+		Iyx	-0.008
+		Iyy	22649.32
+		Iyz	-0.015
+		Izx	-2.224
+		Izy	-0.015
+		Izz	14668.414
+	Moment of Inertia at Origin   (g mm^2)
+		Ixx	1.040E+06
+		Ixy	1.133E+06
+		Ixz	-1.314
+		Iyx	1.133E+06
+		Iyy	1.275E+06
+		Iyz	-0.839
+		Izx	-1.314
+		Izy	-0.839
+		Izz	2.292E+06
+
+General
+	Part Number	Back Left Wheel
+Physical
+	Mass	45.987 g
+	Volume	33687.607 mm^3
+	Density	0.001 g / mm^3
+	Area	45073.041 mm^2
+	World X,Y,Z	-165.000
+	Center of Mass	-165.000
+	Bounding Box
+		Length	68.000 mm
+		Width	30.850 mm
+		Height	68.002 mm
+	Moment of Inertia at Center of Mass   (g mm^2)
+		Ixx	14666.188
+		Ixy	0.008
+		Ixz	2.224
+		Iyx	0.008
+		Iyy	22649.32
+		Iyz	-0.015
+		Izx	2.224
+		Izy	-0.015
+		Izz	14668.414
+	Moment of Inertia at Origin   (g mm^2)
+		Ixx	1.040E+06
+		Ixy	1.133E+06
+		Ixz	3.135
+		Iyx	1.133E+06
+		Iyy	1.275E+06
+		Iyz	-0.84
+		Izx	3.135
+		Izy	-0.84
+		Izz	2.292E+06
+General
+	Part Number	Middle Left Wheel
+Physical
+	Mass	45.987 g
+	Volume	33687.607 mm^3
+	Density	0.001 g / mm^3
+	Area	45073.041 mm^2
+	World X,Y,Z	0.000
+	Center of Mass	-0.000
+	Bounding Box
+		Length	68.000 mm
+		Width	30.850 mm
+		Height	68.002 mm
+	Moment of Inertia at Center of Mass   (g mm^2)
+		Ixx	14666.188
+		Ixy	0.008
+		Ixz	2.224
+		Iyx	0.008
+		Iyy	22649.32
+		Iyz	-0.015
+		Izx	2.224
+		Izy	-0.015
+		Izz	14668.414
+	Moment of Inertia at Origin   (g mm^2)
+		Ixx	1.040E+06
+		Ixy	0.123
+		Ixz	2.224
+		Iyx	0.123
+		Iyy	22649.32
+		Iyz	-0.84
+		Izx	2.224
+		Izy	-0.84
+		Izz	1.040E+06
+
+General
+	Part Number	Front Left Wheel
+Physical
+	Mass	45.987 g
+	Volume	33687.607 mm^3
+	Density	0.001 g / mm^3
+	Area	45073.041 mm^2
+	World X,Y,Z	165.000
+	Center of Mass	165.000
+	Bounding Box
+		Length	68.000 mm
+		Width	30.850 mm
+		Height	68.002 mm
+	Moment of Inertia at Center of Mass   (g mm^2)
+		Ixx	14666.188
+		Ixy	0.008
+		Ixz	2.224
+		Iyx	0.008
+		Iyy	22649.32
+		Iyz	-0.015
+		Izx	2.224
+		Izy	-0.015
+		Izz	14668.414
+	Moment of Inertia at Origin   (g mm^2)
+		Ixx	1.040E+06
+		Ixy	-1.133E+06
+		Ixz	1.313
+		Iyx	-1.133E+06
+		Iyy	1.275E+06
+		Iyz	-0.84
+		Izx	1.313
+		Izy	-0.84
+		Izz	2.292E+06
+
+
+
