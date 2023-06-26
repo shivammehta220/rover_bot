@@ -1,6 +1,22 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
+    <xacro:include filename="inertial_macros.xacro"/>
+
+
+    <xacro:property name="chassis_length" value="0.299258"/>
+    <xacro:property name="chassis_width" value="0.264"/>
+    <xacro:property name="chassis_height" value="0.304902"/>
+    <xacro:property name="chassis_mass" value="1.225156"/>
+    <xacro:property name="arm_length" value="0.222788"/>
+    <xacro:property name="arm_width" value="0.033"/>
+    <xacro:property name="arm_height" value="0.111472"/>
+    <xacro:property name="arm_mass" value="0.17912"/>
+    <xacro:property name="wheel_radius" value="0.034"/>
+    <xacro:property name="wheel_thickness" value="0.03085"/>
+    <xacro:property name="wheel_mass" value="0.045987"/>
+
+
     <material name="grey">
         <color rgba="0.5 0.5 0.5 1"/>
     </material>
@@ -32,18 +48,23 @@
             <material name="grey"/>
         </visual>
         <collision>
-            <origin xyz="0 0 0"/>
+            <origin xyz="-0.091666 0 0.028837"/>
             <geometry>
-                <mesh filename="file:///home/shivam/rover_ws/src/rover_bot/description/meshes/chassis.stl"/>
+                <box size="${chassis_length} ${chassis_width} ${chassis_height}"/>
             </geometry>
         </collision>
+        <!-- <xacro:inertial_box mass="${chassis_mass}" x="${chassis_length}" y="${chassis_width}" z="${chassis_height}">
+            <origin xyz="-0.091666 0.0 0.028837" rpy="0 0 0"/>
+        </xacro:inertial_box> -->
         <inertial>
             <mass value="1.225156"/>
-            <inertia ixx="0.01117" ixy="0.000002132725" ixz="-0.0002573" iyx="0.000002132725" izz="0.01053" iyz="0.000005544541" izx="-0.0002573" izy="0.000005544541" iyy="0.01191"/>
-            <origin xyz="-0.091666 0.0 -0.021337" rpy="0 0 0"/>       
+            <inertia ixx="0.01117" ixy="0.000002132725" ixz="-0.0002573" iyx="0.000002132725" iyy="0.01053" iyz="0.000005544541" izx="-0.0002573" izy="0.000005544541" izz="0.01191"/>
+            <origin xyz="-0.091666 0.0 0.028837" rpy="0 0 0"/>       
         </inertial>
-
     </link>
+    <gazebo reference="chassis">
+        <material>Gazebo/White</material>
+    </gazebo>
 
     <!-- RIGHT ARM LINK -->
 
@@ -61,17 +82,19 @@
             <material name="grey"/>
         </visual>
         <collision>
+            <origin xyz="0 -0.016946 -0.037256" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="file:///home/shivam/rover_ws/src/rover_bot/description/meshes/right_arm.stl"/>
+                <box size="0.222788 0.033 0.111472"/>
             </geometry>
         </collision>
-        <inertial>
-            <mass value="0.17912"/>
-            <inertia ixx="0.0001838" ixy="9.59e-9" ixz="2.662e-9" iyx="9.59e-9" iyy="0.0007798" iyz="3.58241e-7" izx="2.662e-9" izy="3.58241e-7" izz="0.0006212"/>
-            <origin xyz="0 -0.016946 -0.037256" rpy="0 0 0"/>       
-        </inertial>
-        
+        <xacro:inertial_arm mass="${arm_mass}" >
+            <origin xyz="0 -0.016946 -0.037256" rpy="0 0 0"/>
+        </xacro:inertial_arm>
     </link>
+    <gazebo reference="right_arm">
+        <material>Gazebo/White</material>
+    </gazebo>
+
 
     <!-- LEFT ARM LINK -->
 
@@ -89,18 +112,20 @@
             <material name="grey"/>
         </visual>
         <collision>
+            <origin xyz="0 -0.016946 -0.037256" rpy="0 0 0"/> 
             <geometry>
-                <mesh filename="file:///home/shivam/rover_ws/src/rover_bot/description/meshes/left_arm.stl"/>
+                <box size="0.222788 0.033 0.111472"/>
             </geometry>
         </collision>
-        <inertial>
-            <mass value="0.17912"/>
-            <inertia ixx="0.0001838" ixy="9.59e-9" ixz="2.662e-9" iyx="9.59e-9" iyy="0.0007798" iyz="3.58241e-7" izx="2.662e-9" izy="3.58241e-7" izz="0.0006212"/>
-            <origin xyz="0 -0.016946 -0.037256" rpy="0 0 0"/>       
-        </inertial>
-        
+        <xacro:inertial_arm mass="${arm_mass}" >
+            <origin xyz="0 -0.016946 -0.037256" rpy="0 0 0"/>
+        </xacro:inertial_arm>
     </link>
+    <gazebo reference="left_arm">
+        <material>Gazebo/White</material>
+    </gazebo>
 
+    <!-- WHEELS -->
     <!-- RIGHT MIDDLE WHEEL LINK -->
 
     <joint name="right_middle_wheel_joint" type="continuous">
@@ -119,18 +144,19 @@
             <material name="grey"/>
         </visual>
         <collision>
-            <origin xyz="0 0 0" rpy="0 ${pi/2} 0"/>
+            <origin xyz="0 0 0.016326" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="file:///home/shivam/rover_ws/src/rover_bot/description/meshes/wheel.stl"/>
+                <sphere radius="${wheel_radius}"/>
             </geometry>
         </collision>
-        <inertial>
-            <mass value="0.045987"/>
-            <inertia ixx="0.000014666188" ixy="8e-12" ixz="2.224e-9" iyx="8e-12" izz="0.00002264932" iyz="1.5e-11" izx="2.224e-9" izy="1.5e-11" iyy="0.000014668414"/>
-            <origin xyz="0 0 0.016326" rpy="0 0 0"/>       
-        </inertial>
+        <xacro:inertial_cylinder mass="${wheel_mass}" length="${wheel_thickness}" radius="${wheel_radius}">
+            <origin xyz="0 0 0.016326" rpy="0 0 0"/>
+        </xacro:inertial_cylinder>
 
     </link>
+    <gazebo reference="right_middle_wheel">
+        <material>Gazebo/White</material>
+    </gazebo>
 
     <!-- RIGHT REAR WHEEL LINK -->
 
@@ -150,17 +176,18 @@
             <material name="grey"/>
         </visual>
         <collision>
-            <origin xyz="0 0 0" rpy="0 ${pi/2} 0"/>
+            <origin xyz="0 0 0.016326" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="file:///home/shivam/rover_ws/src/rover_bot/description/meshes/wheel.stl"/>
+                <sphere radius="${wheel_radius}"/>
             </geometry>
         </collision>
-        <inertial>
-            <mass value="0.045987"/>
-            <inertia ixx="0.000014666188" ixy="8e-12" ixz="2.224e-9" iyx="8e-12" izz="0.00002264932" iyz="1.5e-11" izx="2.224e-9" izy="1.5e-11" iyy="0.000014668414"/>
-            <origin xyz="0 0 0.016326" rpy="0 0 0"/>       
-        </inertial>
+        <xacro:inertial_cylinder mass="${wheel_mass}" length="${wheel_thickness}" radius="${wheel_radius}">
+            <origin xyz="0 0 0.016326" rpy="0 0 0"/>
+        </xacro:inertial_cylinder>
     </link>
+    <gazebo reference="right_middle_wheel">
+        <material>Gazebo/White</material>
+    </gazebo>
 
     <!-- RIGHT FRONT WHEEL LINK -->
 
@@ -180,18 +207,18 @@
             <material name="grey"/>
         </visual>
         <collision>
-            <origin xyz="0 0 0" rpy="0 ${pi/2} 0"/>
+            <origin xyz="0 0 0.016326" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="file:///home/shivam/rover_ws/src/rover_bot/description/meshes/wheel.stl"/>
+                <sphere radius="${wheel_radius}"/>
             </geometry>
         </collision>
-        <inertial>
-            <mass value="0.045987"/>
-            <inertia ixx="0.000014666188" ixy="8e-12" ixz="2.224e-9" iyx="8e-12" izz="0.00002264932" iyz="1.5e-11" izx="2.224e-9" izy="1.5e-11" iyy="0.000014668414"/>
-            <origin xyz="0 0 0.016326" rpy="0 0 0"/>       
-        </inertial>
+        <xacro:inertial_cylinder mass="${wheel_mass}" length="${wheel_thickness}" radius="${wheel_radius}">
+            <origin xyz="0 0 0.016326" rpy="0 0 0"/>
+        </xacro:inertial_cylinder>
     </link>
-
+    <gazebo reference="right_middle_wheel">
+        <material>Gazebo/White</material>
+    </gazebo>
 
     <!-- LEFT MIDDLE WHEEL LINK -->
 
@@ -211,17 +238,18 @@
             <material name="grey"/>
         </visual>
         <collision>
-            <origin xyz="0 0 0" rpy="0 -${pi/2} 0"/>
+            <origin xyz="0 0 -0.016326" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="file:///home/shivam/rover_ws/src/rover_bot/description/meshes/wheel.stl"/>
+                <sphere radius="${wheel_radius}"/>
             </geometry>
         </collision>
-        <inertial>
-            <mass value="0.045987"/>
-            <inertia ixx="0.000014666188" ixy="8e-12" ixz="2.224e-9" iyx="8e-12" izz="0.00002264932" iyz="1.5e-11" izx="2.224e-9" izy="1.5e-11" iyy="0.000014668414"/>
-            <origin xyz="0 0 -0.016326" rpy="0 0 0"/>       
-        </inertial>
+        <xacro:inertial_cylinder mass="${wheel_mass}" length="${wheel_thickness}" radius="${wheel_radius}">
+            <origin xyz="0 0 -0.016326" rpy="0 0 0"/>
+        </xacro:inertial_cylinder>
     </link>
+    <gazebo reference="left_middle_wheel">
+        <material>Gazebo/White</material>
+    </gazebo>
 
     <!-- LEFT REAR WHEEL LINK -->
 
@@ -241,17 +269,18 @@
             <material name="grey"/>
         </visual>
         <collision>
-            <origin xyz="0 0 0" rpy="0 -${pi/2} 0"/>
+            <origin xyz="0 0 -0.016326" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="file:///home/shivam/rover_ws/src/rover_bot/description/meshes/wheel.stl"/>
+                <sphere radius="${wheel_radius}"/>
             </geometry>
         </collision>
-        <inertial>
-            <mass value="0.045987"/>
-            <inertia ixx="0.000014666188" ixy="8e-12" ixz="2.224e-9" iyx="8e-12" izz="0.00002264932" iyz="1.5e-11" izx="2.224e-9" izy="1.5e-11" iyy="0.000014668414"/>
-            <origin xyz="0 0 -0.016326" rpy="0 0 0"/>       
-        </inertial>
+        <xacro:inertial_cylinder mass="${wheel_mass}" length="${wheel_thickness}" radius="${wheel_radius}">
+            <origin xyz="0 0 -0.016326" rpy="0 0 0"/>
+        </xacro:inertial_cylinder>
     </link>
+    <gazebo reference="left_rear_wheel_joint">
+        <material>Gazebo/White</material>
+    </gazebo>
 
     <!-- LEFT FRONT WHEEL LINK -->
 
@@ -271,17 +300,18 @@
             <material name="grey"/>
         </visual>
         <collision>
-            <origin xyz="0 0 0" rpy="0 -${pi/2} 0"/>
+            <origin xyz="0 0 -0.016326" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="file:///home/shivam/rover_ws/src/rover_bot/description/meshes/wheel.stl"/>
+                <sphere radius="${wheel_radius}"/>
             </geometry>
         </collision>
-        <inertial>
-            <mass value="0.045987"/>
-            <inertia ixx="0.000014666188" ixy="8e-12" ixz="2.224e-9" iyx="8e-12" izz="0.00002264932" iyz="1.5e-11" izx="2.224e-9" izy="1.5e-11" iyy="0.000014668414"/>
-            <origin xyz="0 0 -0.016326" rpy="0 0 0"/>       
-        </inertial>
+        <xacro:inertial_cylinder mass="${wheel_mass}" length="${wheel_thickness}" radius="${wheel_radius}">
+            <origin xyz="0 0 -0.016326" rpy="0 0 0"/>
+        </xacro:inertial_cylinder>
     </link>
+    <gazebo reference="left_front_wheel_joint">
+        <material>Gazebo/White</material>
+    </gazebo>
 
 
 </robot>
