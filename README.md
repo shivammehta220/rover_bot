@@ -6,10 +6,11 @@ This project aims to create an Autonomous 6-Wheeled Rover using ROS2 Humble. The
 
 ![Design](/assets/fullstack2.png)
 
-![Assembly2](/assets/assembly/first_floor.png)
-
+# Wiki
+The documentation of the build process can be found at the Wiki Section or [Here](https://github.com/shivammehta220/rover_bot/wiki/Home/)
 
 # Launch Files
+
 | Launch File       | Description                            |
 |-------------------|----------------------------------------|
 | rsp.launch        | Launches the Robot State Publisher.    |
